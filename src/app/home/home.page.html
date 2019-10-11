@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <img src="../../assets/joblog.png">
+     JOBS SEARCH
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-item>
+    <ion-input placeholder="enter company name"><ion-button (click)="findjobs()" color="secondary"><ion-icon name="search"></ion-icon></ion-button></ion-input>
+  </ion-item>
+
+  <ion-card *ngFor="let comp of jobs" >
+
+<ion-item>  
+  <ion-img [src]="[comp.Jobs.company_logo]" style="height: 50px; width: 50px"></ion-img>
+<p style="padding-left: 50px">
+    <b style="font-size:large;color: deepskyblue;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Company Name:{{comp.Jobs.company}}</b><br><br>
+    Date Posted:{{comp.Jobs.created_at}}
+</p>
+</ion-item>
+<ion-item >
+  Location:{{comp.Jobs.location}}<br><br>
+  Job Title:{{comp.Jobs.title}}<br><br>
+<br>
+  <ion-button color="secondary" [routerLink]="['/description',comp.Jobs.id]" >Description</ion-button>
+</ion-item>
+
+  </ion-card>  
+    
+</div>
+</ion-content>

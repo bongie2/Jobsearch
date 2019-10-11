@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+        <img src="../../assets/joblog.png">
+        JOBS DESCRIBTION
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="ion-padding">
+  <ion-card style="background-color: white" *ngIf="descript">
+
+ <h2>
+   {{descript.company}}
+ </h2>
+ <img [src]="descript.company_logo" text-center height="300px"/>
+
+  Job Title:{{descript.title}}<br>
+  Date:{{descript.created_at}}<br>
+  Job Location:{{descript.location}}<br>
+  Job Type:{{descript.type}}
+  Company URL:{{descript.company_url}}
+
+
+    <h1><b>Description</b></h1><br>
+    
+    <div style="background-color: white; color: black" [innerHTML]="descript.description"></div>
+    <div style="background-color: white; color: black"[innerHTML]="descript.how_to_apply"></div>
+
+  </ion-card>
+  <ion-button fill="outline" style="color:white"routerLink="/home">Back</ion-button>
+</div>
+</ion-content>
